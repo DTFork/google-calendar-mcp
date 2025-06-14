@@ -1,4 +1,4 @@
-FROM oven/bun:1
+FROM oven/bun:latest
 WORKDIR /usr/src/app
 
 # Install Node.js and npm for npx support
@@ -8,9 +8,8 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-COPY bun.lockb .
-COPY package.json .
-RUN bun install --frozen-lockfile --production --ignore-scripts --no-cache && bun cache clean
+COPY package.json bun.lockb ./
+RUN bun install --frozen-lockfile --production --ignore-scripts --no-cache
 
 COPY scripts ./scripts
 COPY src ./src
