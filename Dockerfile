@@ -8,8 +8,8 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-COPY package.json bun.lockb ./
-RUN bun install --production --ignore-scripts --no-cache
+COPY package.json ./
+RUN bun install --ignore-scripts --no-cache
 
 COPY scripts ./scripts
 COPY src ./src
