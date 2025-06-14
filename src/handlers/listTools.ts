@@ -279,28 +279,6 @@ export function getToolDefinitions() {
             }
           },
           required: ["calendarId", "eventId", "timeZone"], // timeZone is technically required for PATCH
-          allOf: [
-            {
-              if: { 
-                properties: { 
-                  modificationScope: { const: "single" } 
-                } 
-              },
-              then: { 
-                required: ["originalStartTime"] 
-              }
-            },
-            {
-              if: { 
-                properties: { 
-                  modificationScope: { const: "future" } 
-                } 
-              },
-              then: { 
-                required: ["futureStartDate"] 
-              }
-            }
-          ]
         },
       },
       {
