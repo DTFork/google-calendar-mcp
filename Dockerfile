@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
 
 COPY bun.lockb .
 COPY package.json .
-RUN bun install --frozen-lockfile --production --ignore-scripts --no-cache && bun pm cache clean
+RUN bun install --frozen-lockfile --production --ignore-scripts --no-cache && bun cache clean
 
 COPY scripts ./scripts
 COPY src ./src
