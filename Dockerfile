@@ -14,7 +14,7 @@ RUN bun install --ignore-scripts --no-cache
 COPY scripts ./scripts
 COPY src ./src
 COPY tsconfig.json .
-RUN bun run postinstall
+RUN bun run build
 
 EXPOSE 3000/tcp
 ENTRYPOINT [ "npx", "-y", "supergateway", "--stdio", "bun run start" ]
